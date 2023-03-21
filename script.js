@@ -41,3 +41,17 @@ function moveToPrevSlide() {
 
   updateSlidePosition();
 }
+
+// AutoPlay
+
+const carouselItems = document.querySelectorAll('.carousel__item');
+let currentItemIndex = 0;
+const intervalDuration = 5000; // 5 seconds
+
+function goToNextItem() {
+  carouselItems[currentItemIndex].classList.remove('carousel__item--visible');
+  currentItemIndex = (currentItemIndex + 1) % carouselItems.length;
+  carouselItems[currentItemIndex].classList.add('carousel__item--visible');
+}
+
+setInterval(goToNextItem, intervalDuration);
