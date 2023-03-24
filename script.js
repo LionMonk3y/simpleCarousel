@@ -1,25 +1,25 @@
 let slidePosition = 0;
-const slides = document.getElementsByClassName("carousel__item");
+const slides = document.getElementsByClassName("carouselItem");
 const totalSlides = slides.length;
 
 document
-  .getElementById("carousel__button--next")
+  .getElementById("carouselButtonNext")
   .addEventListener("click", function () {
     moveToNextSlide();
   });
 document
-  .getElementById("carousel__button--prev")
+  .getElementById("carouselButtonPrev")
   .addEventListener("click", function () {
     moveToPrevSlide();
   });
 
 function updateSlidePosition() {
   for (let slide of slides) {
-    slide.classList.remove("carousel__item--visible");
-    slide.classList.add("carousel__item--hidden");
+    slide.classList.remove("carouselItemVisible");
+    slide.classList.add("carouselItemHidden");
   }
 
-  slides[slidePosition].classList.add("carousel__item--visible");
+  slides[slidePosition].classList.add("carouselItemVisible");
 }
 
 function moveToNextSlide() {
@@ -44,14 +44,14 @@ function moveToPrevSlide() {
 
 // AutoPlay
 
-const carouselItems = document.querySelectorAll('.carousel__item');
+const carouselItems = document.querySelectorAll('.carouselItem');
 let currentItemIndex = 0;
 const intervalDuration = 5000; // 5 seconds
 
 function goToNextItem() {
-  carouselItems[currentItemIndex].classList.remove('carousel__item--visible');
+  carouselItems[currentItemIndex].classList.remove('carouselItemVisible');
   currentItemIndex = (currentItemIndex + 1) % carouselItems.length;
-  carouselItems[currentItemIndex].classList.add('carousel__item--visible');
+  carouselItems[currentItemIndex].classList.add('carouselItemVisible');
 }
 
 setInterval(goToNextItem, intervalDuration);
